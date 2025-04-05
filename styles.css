@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.progress-circle-container{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+@media (orientation: landscape) {
+    .progress {
+        flex-direction: row;
+        width: 568px;
+        height: 320px;
+    }
+    .progress-circle-container{
+        flex-direction: row;
+    }
+}
+
+@media (orientation: portrait) {
+    .progress {
+        flex-direction: column;
+        width: 320px;
+        height: 568px;
+    }
+    .progress-circle-container{
+        flex-direction: column;
+    }
+}
+
+
+.progress-title{
+    align-self: flex-start;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.progress-ring{
+    position: absolute;
+    fill: none;
+    stroke: #edf0f5;
+    stroke-width: 8;
+}
+.progress-fill {
+    fill: none;
+    stroke: #005dfb;
+    stroke-width: 8;
+    transition: stroke-dashoffset 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+.controls-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.control-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.control-group{
+    display: flex;
+    align-items: center;
+}
+.control-group .control-func{
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 31px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dee9ed;
+    transition: 0.5s;
+    border-radius: 44px;
+}
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #005dfb;
+}
+input:checked + .slider:before {
+    transform: translateX(19px);
+}
+input[type="text"] {
+    outline: none;
+    width: 50px;
+    text-align: center;
+    border-radius: 44px;
+    border: 2px solid black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotate 6s linear infinite;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Test</title>
+</head>
+<body>
+<section class="progress">
+
+    <div class="progress-circle-container">
+        <span class="progress-title">Progress</span>
+        <svg width="120" height="120">
+            <circle class="progress-ring" cx="60" cy="60" r="50"></circle>
+            <circle class="progress-fill" cx="60" cy="60" r="50" id="progressFill"></circle>
+        </svg>
+    </div>
+
+    <div class="controls-container">
+
+        <div class="control-wrapper">
+            <div class="control-group">
+                <label>
+                    <input type="text" maxlength="3" id="valueInput" inputmode="numeric" pattern="\d*">
+                </label>
+                <span class="control-func">Value</span>
+            </div>
+
+            <div class="control-group">
+                <label class="switch">
+                    <input type="checkbox" id="animateToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="control-func">Animate</span>
+            </div>
+
+            <div class="control-group">
+                <label class="switch">
+                    <input type="checkbox" id="hideToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="control-func">Hide</span>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="module" src="script.js"></script>
+</body>
+</html>
