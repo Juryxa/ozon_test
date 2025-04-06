@@ -9,7 +9,7 @@ const circumference = 2 * Math.PI * radius;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const block = new ProgressBlock(".progress-circle-container", "#valueInput");
+    const block = new ProgressBlock(".progress-circle-container", "#valueInput", ".progress-fill");
 
     animateToggle.addEventListener("change", (e) => {
         e.target.checked ? block.startRotation() : block.stopRotation();

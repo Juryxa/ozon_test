@@ -144,13 +144,13 @@ input[type="text"] {
 }
 @keyframes rotate {
     from{
-        transform: rotate(0deg);
+        transform: rotate(-90deg);
     }
     to{
-        transform: rotate(360deg);
+        transform: rotate(270deg);
     }
 }
 
 .rotating {
-    animation: rotate 6s linear infinite;
+    animation: rotate 1s linear infinite;
 }

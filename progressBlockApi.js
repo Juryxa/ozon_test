@@ -1,10 +1,12 @@
 export class ProgressBlock {
     #container;
     #input;
+    #fill;
 
-    constructor(containerSelector, inputSelector) {
+    constructor(containerSelector, inputSelector, fillSelector) {
         this.#container = document.querySelector(containerSelector);
         this.#input = document.querySelector(inputSelector);
+        this.#fill = document.querySelector(fillSelector);
 
         if (!this.#container || !this.#input) {
             throw new Error("Container or input element not found");
@@ -24,11 +26,11 @@ export class ProgressBlock {
     }
 
     startRotation() {
-        this.#container.classList.add("rotating");
+        this.#fill.classList.add("rotating");
     }
 
     stopRotation() {
-        this.#container.classList.remove("rotating");
+        this.#fill.classList.remove("rotating");
     }
 
     getValue() {

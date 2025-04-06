@@ -10,6 +10,7 @@
 Создает класс ProgressBlock который принимает:
 * containerSelector — CSS-селектор элемента-контейнера круга (например, .progress-circle-container)
 * inputSelector — CSS-селектор input-поля с value (например, #valueInput)
+* fillSelector - CSS-селектор элемента заполнителя круга (например, .progress-fill)
 
 Выбрасывает ошибку, если один из селекторов не найден на странице.
 
