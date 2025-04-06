@@ -2,27 +2,46 @@ export class ProgressBlock {
     #container;
     #input;
     #fill;
+    #circumference;
+    #radius;
 
     constructor(containerSelector, inputSelector, fillSelector) {
         this.#container = document.querySelector(containerSelector);
         this.#input = document.querySelector(inputSelector);
         this.#fill = document.querySelector(fillSelector);
 
-        if (!this.#container || !this.#input) {
-            throw new Error("Container or input element not found");
+        if (!this.#container || !this.#input || !this.#fill) {
+            throw new Error("Container, input or fill element not found");
         }
 
-        this.#input.addEventListener('input', () => this.#validateValue());
+        this.#radius = this.#fill.r.baseVal.value;
+        this.#circumference = 2 * Math.PI * this.#radius;
+
+        this.#initStyles();
+
+        this.#input.addEventListener("input", () => {
+            this.#validateValue();
+            this.#updateProgress();
+        });
+    }
+
+    #initStyles() {
+        this.#fill.style.strokeDasharray = `${this.#circumference} ${this.#circumference}`;
+        this.#fill.style.strokeDashoffset = this.#circumference;
+    }
+
+    #updateProgress() {
+        const value = this.getValue();
+        const offset = this.#circumference - (value / 100) * this.#circumference;
+        this.#fill.style.strokeDashoffset = offset;
     }
 
     show() {
         this.#container.style.visibility = "visible";
-        // this.#container.style.display = "flex";
     }
 
     hide() {
         this.#container.style.visibility = "hidden";
-        // this.#container.style.display = "none";
     }
 
     startRotation() {

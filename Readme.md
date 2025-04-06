@@ -10,11 +10,15 @@
 Создает класс ProgressBlock который принимает:
 * containerSelector — CSS-селектор элемента-контейнера круга (например, .progress-circle-container)
 * inputSelector — CSS-селектор input-поля с value (например, #valueInput)
-* fillSelector - CSS-селектор элемента заполнителя круга (например, .progress-fill)
+* fillSelector - селектор SVG-элемента circle, отвечающего за визуальное заполнение круга
 
 Выбрасывает ошибку, если один из селекторов не найден на странице.
 
 ### Методы:
+* #updateProgress() - Обновляет круг прогресса в соответствии со значением из input. Приватный
+
+* #initStyles() — задаёт strokeDasharray и начальное strokeDashoffset для круга. Приватный
+
 * show() - Показывает блок круга прогресса
 
 * hide() - Скрывает блок круга прогресса. Закомментирован другой способ скрытия через display:none
